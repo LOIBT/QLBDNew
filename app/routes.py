@@ -231,9 +231,10 @@ def tracuu():
     return render_template('tracuu.html', form=form2, dsphieu=dsphieu)
 
 users = []
-users.append(User(id=1, username='Anthony', password='password'))
-users.append(User(id=2, username='Becca', password='secret'))
-users.append(User(id=3, username='Carlos', password='somethingsimple'))
+users.append(User(id=1, username='nhuvdk', password='qlbd'))
+users.append(User(id=2, username='loibt', password='qlbd'))
+users.append(User(id=3, username='linhvt', password='qlbd'))
+users.append(User(id=3, username='tienttm', password='qlbd'))
 
 @app.before_request
 def before_request():
@@ -267,5 +268,4 @@ def profile():
         return redirect(url_for('login'))
 
     return render_template('profile.html')
-
 
