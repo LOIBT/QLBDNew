@@ -1,4 +1,4 @@
-from app import app, pool, dsphieu, phieu
+from app import app, pool, dsphieu, phieu, dsdonhang, donhang
 from flask import render_template
 from app.forms import PhanCongForm, ChiaTuDong, TestForm, DangKyDonForm, TraCuuThongTinNV, SearchForm
 from datetime import date,timedelta
@@ -199,15 +199,39 @@ def dkdh():
         return redirect(url_for('dkdh'))
     return render_template('dangkydonhang.html', form=form2)
 
-@app.route('/tracuu', methods=['GET', 'POST'])
-def tracuu():
-    form2 = SearchForm()
+@app.route('/donhangtaibd', methods=['GET','POST'])
+def dhtbd():
+    form2 = SearchForm();
+    if form2.validate_on_submit():
+        mvd = form2.mavandon.data
+        if len(dsdonhang) != 0:
+            dsdonhang.pop(0)
+        connection = pool.acquire()
+        cursor = connection.cursor();
+        query = """select tsh.mavandon, bd.trangthai, tsh.phivanchuyen, bd.thoigian
+from thongsohang tsh inner join donhangtaibd bd
+on tsh.mavandon = bd.mavandon
+where tsh.mavandon = :mavandon"""
+        cursor.execute(query,[mvd])
+        r = cursor.fetchone()
+        donhang['mavandon'] = r[0]
+        donhang['trangthai'] = r[1]
+        donhang['phivanchuyen'] = r[2]
+        donhang['thoigian'] = r[3]
+        dsdonhang.append(donhang)
+        pool.release(connection)
+        return redirect(url_for('dhtbd'))
+    return render_template('tracuu.html', form=form2, dsdonhang=dsdonhang)
+
+@app.route('/xuatphieu', methods=['GET', 'POST'])
+def xuatphieu():
+    form2 = SearchForm();
     if form2.validate_on_submit():
         mvd = form2.mavandon.data
         if len(dsphieu) != 0:
             dsphieu.pop(0)
         connection = pool.acquire()
-        cursor = connection.cursor()
+        cursor = connection.cursor();
         query = """select p.madonhang, p.mavandon, p.tennguoinhan, p.sdtnhan, d.thoigiandat, d.diachigui, d.diachinhan, d.motasp, k.tenkhachhang, k.sdt
     from phieudonhang p inner join donhangdk d
     on p.madk = d.madk inner join khachhang k
@@ -227,8 +251,8 @@ def tracuu():
         phieu['thoigiandat'] = r[4]
         dsphieu.append(phieu)
         pool.release(connection)
-        return redirect(url_for('tracuu'))
-    return render_template('tracuu.html', form=form2, dsphieu=dsphieu)
+        return redirect(url_for('xuatphieu'))
+    return render_template('xuatphieu.html', form=form2, dsphieu=dsphieu) 
 
 users = []
 users.append(User(id=1, username='nhuvdk', password='qlbd'))

@@ -21,4 +21,12 @@ phieu = {
     'thoigiandat': ''
 }
 
+dsdonhang = []
+donhang = {
+    'mavandon': '',
+    'trangthai': '',
+    'phivanchuyen': -1,
+    'thoigian': ''
+}
+
 from app import routes
