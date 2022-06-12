@@ -1,1 +1,95 @@
 {% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Phần body của trang chủ-->
+    <div class="body">
+      <!--image slide start-->  
+      <div class="introduce">
+        <span class="introduce--span">Mô tả bài toán</span>
+        <p>Xây dựng được một hệ thống ứng dụng cho bưu điện quản lý, lưu trữ và vận chuyển đơn hàng nhanh chóng, 
+        tiết kiệm và đến đúng nơi. Nhân viên bưu điện tùy vào chức vụ có thể thực hiện các chức năng phù hợp. 
+        Hệ thống sẽ có thể đáp ứng các yêu cầu sau:
+        Quản lý thông tin nhân viên bưu điện: các ca làm, chức vụ, một số thông tin cá nhân. 
+        Thông tin này có thể dùng để đánh giá năng lực nhân viên hay tính lương cho nhân viên,… 
+        Đồng thời cũng phân công công việc, ca làm phù hợp với nhân viên.
+        Quản lý thông tin khách hàng: thông tin cần quản lý là thông tin từ cả người gửi lẫn người nhận để đảm bảo đơn hàng có xuất xứ nguồn gốc và điểm đến rõ ràng. 
+        Thông tin khách hàng dùng để tái sử dụng cho những lần vận chuyển tiếp theo và có thể dùng để thống kê các báo cáo liên quan.
+        Quản lý đơn hàng: bao gồm thông tin và trạng thái hiện tại của đơn hàng, 
+        cập nhật kịp thời các thay đổi từ đơn hàng để có xử lý phù hợp với các vấn đề phát sinh. 
+        Quản lý việc vận chuyển đơn hàng: Tiến hành phân công nhân viên giao hàng, phân phối đơn hàng sao cho thật hợp lý, tiết kiệm. 
+        Thực hiện tính toán phí vận chuyển dựa trên quãng đường vận chuyển và các thông số hàng, 
+        các thông số này có được khi thực hiện công việc đo lường, phân loại.
+        Kết xuất các hóa đơn chi trả hay thu hộ cho khách hàng, các báo cáo theo thời gian.
+        Tra cứu các thông tin, trạng thái đơn hàng; chi tiết các báo cáo
+    </p>
+      </div>
+      <div class="slider">
+        <div class="sliders">
+          <!--radio buttons start-->
+          <input type="radio" name="radio-btn"id="radio1">
+          <input type="radio" name="radio-btn"id="radio2">
+          <input type="radio" name="radio-btn"id="radio3">
+          <input type="radio" name="radio-btn"id="radio4">
+          <!--radio buttons end-->
+          <!--slider image start-->
+          <div class="slide first">
+            <img  src="http://www.vnpost.vn/Portals/0/banner/Banner%20Hoc-Online.jpg"  alt="">
+          </div>
+          <div class="slide">
+            <img src="http://www.vnpost.vn/Portals/0/banner/Postmart-NongSan.jpg" alt="">
+          </div>
+          <div class="slide">
+            <img src="http://hcmpost.vn/uploads/quangcao/logistic-1-png-20211107111309mo6ydxXtKc.png"  alt="">
+          </div>
+          <div class="slide">
+            <img src="http://www.vnpost.vn/Portals/0/banner/Banner%20Cong%20PostGreen.jpg" alt="">
+          </div>
+          
+          <!--slider image end-->
+          <!--automatic navigation start-->
+          <div class="navigation-auto">
+            <div class="auto-btn1">
+
+            </div>
+            <div class="auto-btn2">
+              
+            </div>
+            <div class="auto-btn3">
+              
+            </div>
+            <div class="auto-btn4">
+              
+            </div>
+          </div>
+          <!--automatic nagivation end-->
+
+        </div>
+        <!--matual nagigation start-->
+        <div class="nagigation-manual">
+          <label for="radio1" class="manual-btn" ></label>
+          <label for="radio2" class="manual-btn" ></label>
+          <label for="radio3" class="manual-btn" ></label>
+          <label for="radio4" class="manual-btn" ></label>
+
+        </div>
+        <!--matual nagigation end-->
+
+      </div>
+         <!--image slide end-->
+         <script type="text/javascript">
+           var count = 1;
+           setInterval(function(){
+             document.getElementById('radio' + count).checked = true;
+             count ++;
+             if(count > 4 ){
+               count = 1 ;
+             }
+           }, 5000);
+         </script>
+    </div>
+
+</body>
+</html>
+{% endblock %}
