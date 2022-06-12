@@ -524,3 +524,9 @@ def profile():
 
     return render_template('profile.html')
 
+@app.route('/gioithieu')
+def gioithieu():
+    # if not g.user:
+    #     return redirect(url_for('gioithieu'))
+
+    return render_template('gioithieu.html')
