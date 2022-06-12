@@ -12,42 +12,49 @@ class ChiaTuDong(FlaskForm):
     nutTuDong = SubmitField(label='TuDongPhanChia')
 
 class TraCuuThongTinNV(FlaskForm):
-    manv = IntegerField('Mã Nhân Viên', validators=[DataRequired()])
+    manv = StringField('Mã Nhân Viên', validators=[DataRequired()])
     nutTraCuuNV = SubmitField(label='TraCuuNV')
 
+class TraCuuThongTinKH(FlaskForm):
+    makh = StringField('Mã Khách Hàng', validators=[DataRequired()])
+    nutTraCuuKH = SubmitField(label='TraCuuKH')
+
+class TraCuuThongTinAllKH(FlaskForm):
+    ToanBoKH = SubmitField(label='TraCuuToanBoKH')
+
 class TestForm(FlaskForm):
-    makh = IntegerField(label='Ma khach hang:', validators=[DataRequired()])
-    tenkh = StringField(label='Ten khach hang:', validators=[DataRequired()])
-    diachi = StringField(label='Dia chi:', validators=[DataRequired()])
-    sdt = StringField(label='SDT:', validators=[DataRequired()])
-    LoaiKH = StringField(label='Loai Khach Hang:', validators=[DataRequired()])
+    makh = IntegerField(label='Mã Khách Hàng', validators=[DataRequired()])
+    tenkh = StringField(label='Tên Khách Hàng', validators=[DataRequired()])
+    diachi = StringField(label='Địa Chỉ', validators=[DataRequired()])
+    sdt = StringField(label='Số Điện Thoại', validators=[DataRequired()])
+    LoaiKH = StringField(label='Loại Khách Hàng', validators=[DataRequired()])
     
     # stringfield
-    submit = SubmitField(label='Xac nhan')
+    submit = SubmitField(label='Xác Nhận')
 
 class DangKyDonForm(FlaskForm):
-    makh = IntegerField(label='Ma khach hang:', default=-1)
-    tenkh = StringField('Ten nguoi gui:', validators=[DataRequired()])
-    sdt = StringField('So dien thoai nguoi gui:', validators=[DataRequired()])
-    dc_kh = StringField('Dia khach hang:', validators=[DataRequired()])
-    dc_gui = StringField('Dia chi gui:', validators=[DataRequired()])
-    dc_nhan = StringField('Dia chi nhan:', validators=[DataRequired()])
-    ghichu = StringField('Ghi chu:')
-    mota = StringField('Mo ta:')
-    dai = IntegerField(label='Chieu dai:')
-    rong = IntegerField(label='Chieu rong:')
-    cao = IntegerField(label='Chieu cao:')
-    kl = IntegerField(label='Khoi luong:')
-    ml = IntegerField(label='Ma loai:')
-    cod = IntegerField(label='COD:')
-    tennn = StringField('Ten nguoi nhan:', validators=[DataRequired()])
-    cccd = StringField('Ten nguoi nhan:', validators=[DataRequired()])
-    sdt_nn = StringField('So dien thoai nguoi nhan:', validators=[DataRequired()])
-    submit = SubmitField('Xac nhan')
+    makh = IntegerField(label='Mã Khách Hàng', default=-1)
+    tenkh = StringField('Tên Người Gửi', validators=[DataRequired()])
+    sdt = StringField('Số Điện Thoại Người Gửi', validators=[DataRequired()])
+    dc_kh = StringField('Địa Chỉ Khách Hàng', validators=[DataRequired()])
+    dc_gui = StringField('Địa Chỉ Gửi', validators=[DataRequired()])
+    dc_nhan = StringField('Địa Chỉ Nhận', validators=[DataRequired()])
+    ghichu = StringField('Ghi Chú')
+    mota = StringField('Mô Tả')
+    dai = IntegerField(label='Chiều Dài')
+    rong = IntegerField(label='Chiều Rộng')
+    cao = IntegerField(label='Chiều Cao')
+    kl = IntegerField(label='Khối Lượng')
+    ml = IntegerField(label='Mã Loại')
+    cod = IntegerField(label='COD')
+    tennn = StringField('Tên Người Nhận', validators=[DataRequired()])
+    cccd = StringField('Căn Cước Công Dân (CCCD)', validators=[DataRequired()])
+    sdt_nn = StringField('Số Điện Thoại Người Nhận', validators=[DataRequired()])
+    submit = SubmitField('Xác Nhận')
 
 class SearchForm(FlaskForm):
-    mavandon = StringField(label='Ma van don:', validators=[DataRequired()]) 
-    submit = SubmitField('Xac nhan')
+    mavandon = StringField(label='Mã Vận Đơn', validators=[DataRequired()]) 
+    submit = SubmitField('Xác Nhận')
 
 class User:
     def __init__(self, id, username, password):
