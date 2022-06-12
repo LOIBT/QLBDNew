@@ -12,17 +12,49 @@
     .header-navbar{
         height: 100px;
         padding-top: 30px;
-        background-color: #ee0033;
+        background-color: #ffff;
     }
     .nav-item{
         display: inline-block;
     }
     
-    .position-left{
+    .position-right{
         position: absolute;
-        right: 0px;
-        bottom:  -20px;
-    
+        left:  10px;
+        top: -10px;
+    }
+    .position-left{
+      position: absolute;
+      right: 30px;
+      top: -10px;
+    }
+    .ul_banner{
+      display: flex;
+      overflow: hidden;
+    }
+    .ul_banner > div{
+      float: left;
+      padding-right: 20px;
+    }
+    .ul_banner > div i{
+      float: left;
+      display: block;
+      text-align: center;
+      color: #fff;
+      background: #fca61d;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
+      margin-right: 6px;
+    }
+    .ul_banner > div p{
+      display: block;
+      overflow: hidden;
+    }
+    .strong_css{
+      display: block;
+      color: #0366b3;
     }
     .margin_bottom_10{
         margin-bottom: 10px;
@@ -42,9 +74,7 @@
     .border_radius_30{
         border-radius: 30px;
     }
-    .backgroud_color{
-        background-color: #44494d;
-    }
+    
     .color-text{
         color: #ffff;
     }
@@ -57,7 +87,7 @@
     }
     /*CSS for navigation*/
     .Header-navigation{
-        background-color: #44494d;
+        background-color: #f09300;
     }
     .navbar-nav li{
         position: relative;
@@ -193,6 +223,7 @@
         background: #ee0033;
     }
     /*CSS for footer*/
+    
     .footer{
         margin: 0;
         padding: 0;
@@ -201,16 +232,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #0000;
+        background: #f09300;
         position: relative;
     }
+    .footer_wrap{
+      
+    }
+    .footer_wrap--text{
+      display: inline-block;
+      text-align: center;
+      padding: 0 70px 0 70px;
+    }
     .contact{
-        position: absolute;
-        left: 70px;
+        
     }
     .contact-text {
         font-size: 24px;
         margin-left: 10px;
+        border-bottom: 20px;
     }
     .contact-icons{
         padding-top: 20px;
@@ -221,11 +260,19 @@
         margin-left: 10px;
         justify-content: center;
     }
-    a{
-        text-decoration: none;
-        color: #000;
+    .contact-icons >a {
+      text-decoration: none;
+      color: #000;
     }
-    
+    .wrap--introduce > a {
+      color: #ffff;
+    }
+    .wrap--menu > a {
+      color: #ffff;
+    }
+    .wrap--service > a{
+      color: #ffff;
+    }
 </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -250,27 +297,31 @@
         <div class="header-navbar position-relative">
             <nav class="navbar navbar-expand-lg  ">
                 
-                <div class="collapse navbar-collapse position-left " id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                      
-                    <form class="form-inline my-2 my-lg-0">
-                    
-                      <input class="form-control mr-sm-2 width_540" type="search" placeholder="Tra cứu đơn hàng" aria-label="Tìm Kiếm">
-                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm Kiếm</button>
-                    </form>
-
-                    <li class="nav-item   cursor_pointer   ">
-                        <a class="nav-link color-text " href="#">VuTienLinh</a>
-                      </li>
-
-                      <li class="nav-item cursor_pointer margin_right_50 ">
-                        <a class="" href="#">
-                          <i class="fa-solid fa-circle-user contact-icon  "></i>
-                        </a>
-                      </li>
-
-                  </ul>
+                <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                  <div class="min_wrap position-right">
+                    <img src="http://hcmpost.vn/uploads/quangcao/logo-png-201710121347260WnywqYZkW.png" alt="logo">
+                  </div>
                   
+                  <div class="ul_banner position-left">
+                    <div class="">
+                      <i class="fa-solid fa-clock"></i>
+                      <p> giờ làm việc
+                        <strong class="strong_css">7:30 Sáng - 17:00 Tối (T2 - T7)</strong>
+                      </p>
+                    </div>
+                    <div class="">
+                      <i class="fa-solid fa-phone"></i>
+                      <p> Hotline
+                        <strong class="strong_css">02839247247</strong>
+                      </p>
+                    </div>
+                    <div class="">
+                      <i class="fa-solid fa-envelope"></i>
+                      <p> Email
+                        <strong class="strong_css">cskh@vnpost.vn</strong>
+                      </p>
+                    </div>
+                  </div>
                  
                 </div>
               </nav>
@@ -287,7 +338,7 @@
                 </li>
 
                 <li class="nav-item  padding_left_right_50 cursor_pointer  margin_left_right_10 border_radius_30 ">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="gioithieu">
                     Giới Thiệu
                   </a>  
                 </li>
@@ -352,6 +403,87 @@
     {% block content %}
     
     {% endblock %}
-<!--  Footer-->
+    <!--Footer-->
+    <div class="footer">
+        
+        <div class="footer_wrap">
+          <!--contact start-->
+          <div class="footer_wrap--text contact">
+            <span class="contact-text"> Phản hồi cho chúng tôi</span>
+            <div class=" contact-icons">
+              <a  href="">
+                <i class="fa-brands fa-facebook contact-icon"></i>
+              </a>
+              <a  href="#">
+                <i class="fa-solid fa-envelope contact-icon"></i>
+              </a>
+              <a  href="#">
+                <i class="fa-brands fa-linkedin contact-icon"></i>
+              </a>
+              <a  href="#">
+                <i class="fa-brands fa-medium contact-icon">
+                </i>
+              </a>
+            </div>
+           
+            </div>
+
+          <div class="footer_wrap--text wrap--introduce">
+            <span class="contact-text"> Giới Thiệu</span>
+            <a href="">
+              <p>Chuyển phát tiết kiệm</p>
+            </a>
+            <a href="">
+              <p>Phân phối chuyền thông</p>
+            </a>
+            <a href="">
+              <p>Tuyển dụng </p>
+            </a>
+            <a href="">
+              <p>Liên hệ</p>
+            </a>
+            </div>
+
+          <div class="footer_wrap--text wrap--menu">
+              <span class="contact-text">Danh Mục</span>
+              <a href="">
+                <p>Trang chủ</p>
+              </a>
+              <a href="">
+                <p>Tài chính</p>
+              </a>
+              <a href="">
+                <p>Tin tức - sự kiện</p>
+              </a>
+              <a href="">
+                <p>Hàng cấm gửi</p>
+              </a>
+            </div>
+
+          <div class="footer_wrap--text wrap--service">
+              <span class="contact-text">Dịch Vụ</span>
+              <a href="">
+                <p>BƯU PHẨM - BƯU KIỆN</p>
+              </a>
+              <a href="">
+                <p>GIAO HÀNG COD</p>
+              </a>
+              <a href="">
+                <p>TIẾT KIỆM - BẢO HIỂM</p>
+              </a>
+              <a href="">
+                <p>DỊCH VỤ CHUYỂN TIỀN</p>
+              </a>
+            </div>  
+        </div>
+        
+        <!--contact end-->
+  
+        <!--hỗ trợ khách hàng Start-->
+        
+        <!--hỗ trợ khách hàng End-->
+  
+  
+      </div>
 </body>
 </html>
